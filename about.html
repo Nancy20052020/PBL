@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: url('bgn.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+	        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: transparent;
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .header {
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.3); /* Slightly transparent background */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 100px 0 20px; /* Added top margin for space under the fixed header */
+            padding: 0 20px;
+        }
+        .card {
+            position: relative;
+            width: 30%; /* Increased card size */
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.8s ease-out;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: translateY(80%);
+            opacity: 0;
+        }
+        .card:hover img {
+            transform: translateY(-30%); /* Slide image up */
+        }
+        .card:hover .card-content {
+            transform: translateY(0); /* Slide text up */
+            opacity: 1;
+        }
+        .card-content h2 {
+            margin-top: 0;
+            font-size: 1.8em; /* Font size */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .card-content p {
+            font-size: 1em; /* Font size */
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+	<div class="navbar">
+        <a href="#">Home</a>
+        <a href="about.html">About</a>
+	<a href="attend.html">Attendance</a>
+	<a href="face2.html">Face</a>
+	<a href="#">
+    </div>
+
+    <div class="header">
+        <h1>About Us</h1>
+    </div>
+    <div class="container">
+        <div class="cards">
+            <div class="card">
+                <img src="mem1.jpg" alt="1">
+                <div class="card-content">
+                    <h2>Amisha Singh</h2>
+		    <p>(AIML ,Sec-D ,Reg no.-23FE10CAI00345)</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="mem2.jpg" alt="2">
+                <div class="card-content">
+                    <h2>Nancy Verma</h2>
+		    <p>(AIML ,Sec-D ,Reg no.-23FE10CAI00241)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

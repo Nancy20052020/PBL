@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Facial</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: transparent;
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            color: #0ff;
+        }
+
+        /* Parallax Section */
+        .parallax {
+            height: 100vh;
+            position: relative;
+            background: url('bg.jpg') center/cover no-repeat fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            perspective: 1000px;
+        }
+
+        .parallax h1 {
+            font-size: 80px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 1;
+            transform: translateZ(50px);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .typewriter {
+            margin-top: 20px;
+            font-size: 28px;
+            color: #f4f4f4;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid white;
+            animation: caret 0.75s step-end infinite;
+            transform: translateZ(30px);
+        }
+
+        @keyframes caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Keyframes for typing effect */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateZ(50px);
+            }
+            50% {
+                transform: translateY(-20px) translateZ(50px);
+            }
+        }
+
+        /* Button styling */
+        .cta-button {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 20px;
+            color: white;
+            background-color: #ff6200;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateZ(20px);
+        }
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        .cta-button:active {
+            transform: translateY(5px) translateZ(20px);
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Us Section */
+        .about-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: url('about.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image {
+            flex: 1;
+            height: 500px;
+	    background:url("about2.jpg") center/cover no-repeat;
+            margin-right: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            transform: translateZ(20px);
+        }
+
+        .about-content {
+            flex: 1;
+            color: white;
+        }
+
+        .about-content h2 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: left;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transform: translateZ(30px);
+        }
+
+        .about-content p {
+            font-size: 24px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            transform: translateZ(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="about.html">Service</a>
+	<a href="attend.html">Attendance</a>
+	<a href="face2.html">Face</a>
+	<a href="#">
+    </div>
+
+    <!-- Parallax Section -->
+    <div class="parallax">
+        <div>
+            <h1>Our Vision</h1>
+            <div class="typewriter" id="typewriter"></div>
+            <button class="cta-button">Learn More</button>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="about-section">
+        <div class="about-image"></div>
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>
+                More about facial recognition.
+            </p>
+            <p>
+                More.
+            </p>
+        </div>
+    </div>
+
+    <!-- Typewriting Effect Script -->
+    <script>
+        const texts = [
+            "Line1.",
+            "Line3",
+            "line2.",
+            "We are working."
+        ];
+
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.getElementById('typewriter').textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000); // Pause before next text
+            } else {
+                setTimeout(type, 100); // Typing speed
+            }
+        }());
+    </script>
+</body>
+
+</html>
+
